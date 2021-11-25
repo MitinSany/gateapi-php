@@ -604,7 +604,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -939,7 +940,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1292,7 +1294,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1642,7 +1645,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1910,7 +1914,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2185,7 +2190,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2425,7 +2431,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2757,7 +2764,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2997,7 +3005,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -3257,7 +3266,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -3540,7 +3550,8 @@ class DeliveryApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -3823,7 +3834,8 @@ class DeliveryApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -4106,7 +4118,8 @@ class DeliveryApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -4484,7 +4497,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -4738,7 +4752,8 @@ class DeliveryApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -5018,7 +5033,8 @@ class DeliveryApi
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -5278,7 +5294,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -5538,7 +5555,8 @@ class DeliveryApi
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -5910,7 +5928,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -6206,7 +6225,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -6520,7 +6540,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 

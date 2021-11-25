@@ -559,7 +559,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -799,7 +800,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1049,7 +1051,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1400,7 +1403,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1650,7 +1654,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2049,7 +2054,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2283,7 +2289,8 @@ class MarginApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2549,7 +2556,8 @@ class MarginApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2812,7 +2820,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -3075,7 +3084,8 @@ class MarginApi
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -3329,7 +3339,8 @@ class MarginApi
             'PATCH',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -3569,7 +3580,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -3823,7 +3835,8 @@ class MarginApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -4144,7 +4157,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -4407,7 +4421,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -4661,7 +4676,8 @@ class MarginApi
             'PATCH',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -4876,7 +4892,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -5119,7 +5136,8 @@ class MarginApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -5393,7 +5411,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -5667,7 +5686,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -5879,7 +5899,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -6116,7 +6137,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -6331,7 +6353,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -6682,7 +6705,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -7021,7 +7045,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -7255,7 +7280,8 @@ class MarginApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -7495,7 +7521,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -7828,7 +7855,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -8062,7 +8090,8 @@ class MarginApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -8305,7 +8334,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -8548,7 +8578,8 @@ class MarginApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 

@@ -686,7 +686,8 @@ class WalletApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1019,7 +1020,8 @@ class WalletApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1229,7 +1231,8 @@ class WalletApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1562,7 +1565,8 @@ class WalletApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1772,7 +1776,8 @@ class WalletApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2022,7 +2027,8 @@ class WalletApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2272,7 +2278,8 @@ class WalletApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2522,7 +2529,8 @@ class WalletApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2772,7 +2780,8 @@ class WalletApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 

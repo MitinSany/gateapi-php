@@ -604,7 +604,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -939,7 +940,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1292,7 +1294,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1642,7 +1645,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -1910,7 +1914,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2209,7 +2214,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2484,7 +2490,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -2819,7 +2826,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -3148,7 +3156,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -3388,7 +3397,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -3720,7 +3730,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -3960,7 +3971,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -4220,7 +4232,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -4503,7 +4516,8 @@ class FuturesApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -4803,7 +4817,8 @@ class FuturesApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -5086,7 +5101,8 @@ class FuturesApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -5349,7 +5365,8 @@ class FuturesApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -5609,7 +5626,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -5915,7 +5933,8 @@ class FuturesApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -6198,7 +6217,8 @@ class FuturesApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -6481,7 +6501,8 @@ class FuturesApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -6865,7 +6886,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -7119,7 +7141,8 @@ class FuturesApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -7399,7 +7422,8 @@ class FuturesApi
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -7659,7 +7683,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -7919,7 +7944,8 @@ class FuturesApi
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -8291,7 +8317,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -8645,7 +8672,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -8959,7 +8987,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -9301,7 +9330,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -9555,7 +9585,8 @@ class FuturesApi
             'POST',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -9818,7 +9849,8 @@ class FuturesApi
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -10078,7 +10110,8 @@ class FuturesApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
@@ -10338,7 +10371,8 @@ class FuturesApi
             'DELETE',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
