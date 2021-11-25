@@ -346,7 +346,8 @@ class DeliveryApi
             'GET',
             $this->config->getHost() . $resourcePath . ($query ? "?{$query}" : ''),
             $headers,
-            $httpBody
+            $httpBody,
+            '2.0'
         );
     }
 
