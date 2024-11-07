@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**rate** | **string** | Loan rate | [optional] 
+**rate** | **string** | Loan rate (daily rate) | [optional] 
 **amount** | **string** | Borrowable amount | [optional] 
 **days** | **int** | The number of days till the loan repayment&#39;s dateline | [optional] 
 

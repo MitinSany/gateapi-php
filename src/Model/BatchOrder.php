@@ -43,17 +43,17 @@ class BatchOrder implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'BatchOrder';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'text' => 'string',
         'succeeded' => 'bool',
@@ -88,10 +88,10 @@ class BatchOrder implements ModelInterface, ArrayAccess
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'text' => null,
         'succeeded' => null,
@@ -305,6 +305,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     const STATUS_CLOSED = 'closed';
     const STATUS_CANCELLED = 'cancelled';
     const TYPE_LIMIT = 'limit';
+    const TYPE_MARKET = 'market';
     const ACCOUNT_SPOT = 'spot';
     const ACCOUNT_MARGIN = 'margin';
     const ACCOUNT_CROSS_MARGIN = 'cross_margin';
@@ -313,6 +314,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     const TIME_IN_FORCE_GTC = 'gtc';
     const TIME_IN_FORCE_IOC = 'ioc';
     const TIME_IN_FORCE_POC = 'poc';
+    const TIME_IN_FORCE_FOK = 'fok';
     
 
     
@@ -339,6 +341,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     {
         return [
             self::TYPE_LIMIT,
+            self::TYPE_MARKET,
         ];
     }
     
@@ -380,6 +383,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
             self::TIME_IN_FORCE_GTC,
             self::TIME_IN_FORCE_IOC,
             self::TIME_IN_FORCE_POC,
+            self::TIME_IN_FORCE_FOK,
         ];
     }
     
@@ -781,7 +785,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets type
      *
-     * @param string|null $type Order type. limit - limit order
+     * @param string|null $type Order Type    - limit : Limit Order - market : Market Order
      *
      * @return $this
      */
@@ -928,7 +932,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets time_in_force
      *
-     * @param string|null $time_in_force Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee
+     * @param string|null $time_in_force Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
      *
      * @return $this
      */
@@ -961,7 +965,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
     /**
      * Sets iceberg
      *
-     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders. Set to -1 to hide the order completely
+     * @param string|null $iceberg Amount to display for the iceberg order. Null or 0 for normal orders.  Hiding all amount is not supported.
      *
      * @return $this
      */
@@ -1266,7 +1270,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -1278,9 +1282,10 @@ class BatchOrder implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -1291,7 +1296,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -1307,7 +1312,7 @@ class BatchOrder implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

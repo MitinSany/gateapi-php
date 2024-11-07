@@ -42,17 +42,17 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'MarginCurrencyPair';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'id' => 'string',
         'base' => 'string',
@@ -60,14 +60,15 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
         'leverage' => 'int',
         'min_base_amount' => 'string',
         'min_quote_amount' => 'string',
-        'max_quote_amount' => 'string'
+        'max_quote_amount' => 'string',
+        'status' => 'int'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'id' => null,
         'base' => null,
@@ -75,7 +76,8 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
         'leverage' => null,
         'min_base_amount' => null,
         'min_quote_amount' => null,
-        'max_quote_amount' => null
+        'max_quote_amount' => null,
+        'status' => 'int32'
     ];
 
     /**
@@ -111,7 +113,8 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
         'leverage' => 'leverage',
         'min_base_amount' => 'min_base_amount',
         'min_quote_amount' => 'min_quote_amount',
-        'max_quote_amount' => 'max_quote_amount'
+        'max_quote_amount' => 'max_quote_amount',
+        'status' => 'status'
     ];
 
     /**
@@ -126,7 +129,8 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
         'leverage' => 'setLeverage',
         'min_base_amount' => 'setMinBaseAmount',
         'min_quote_amount' => 'setMinQuoteAmount',
-        'max_quote_amount' => 'setMaxQuoteAmount'
+        'max_quote_amount' => 'setMaxQuoteAmount',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -141,7 +145,8 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
         'leverage' => 'getLeverage',
         'min_base_amount' => 'getMinBaseAmount',
         'min_quote_amount' => 'getMinQuoteAmount',
-        'max_quote_amount' => 'getMaxQuoteAmount'
+        'max_quote_amount' => 'getMaxQuoteAmount',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -211,6 +216,7 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
         $this->container['min_base_amount'] = isset($data['min_base_amount']) ? $data['min_base_amount'] : null;
         $this->container['min_quote_amount'] = isset($data['min_quote_amount']) ? $data['min_quote_amount'] : null;
         $this->container['max_quote_amount'] = isset($data['max_quote_amount']) ? $data['max_quote_amount'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -404,6 +410,30 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets status
+     *
+     * @return int|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int|null $status Currency pair status   - `0`: disabled  - `1`: enabled
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -411,7 +441,7 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -423,9 +453,10 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -436,7 +467,7 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -452,7 +483,7 @@ class MarginCurrencyPair implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

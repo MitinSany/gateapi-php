@@ -42,17 +42,17 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'FuturesInitialOrder';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'contract' => 'string',
         'size' => 'int',
@@ -61,15 +61,16 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
         'tif' => 'string',
         'text' => 'string',
         'reduce_only' => 'bool',
+        'auto_size' => 'string',
         'is_reduce_only' => 'bool',
         'is_close' => 'bool'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'contract' => null,
         'size' => 'int64',
@@ -78,6 +79,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
         'tif' => null,
         'text' => null,
         'reduce_only' => null,
+        'auto_size' => null,
         'is_reduce_only' => null,
         'is_close' => null
     ];
@@ -116,6 +118,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
         'tif' => 'tif',
         'text' => 'text',
         'reduce_only' => 'reduce_only',
+        'auto_size' => 'auto_size',
         'is_reduce_only' => 'is_reduce_only',
         'is_close' => 'is_close'
     ];
@@ -133,6 +136,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
         'tif' => 'setTif',
         'text' => 'setText',
         'reduce_only' => 'setReduceOnly',
+        'auto_size' => 'setAutoSize',
         'is_reduce_only' => 'setIsReduceOnly',
         'is_close' => 'setIsClose'
     ];
@@ -150,6 +154,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
         'tif' => 'getTif',
         'text' => 'getText',
         'reduce_only' => 'getReduceOnly',
+        'auto_size' => 'getAutoSize',
         'is_reduce_only' => 'getIsReduceOnly',
         'is_close' => 'getIsClose'
     ];
@@ -236,6 +241,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
         $this->container['tif'] = isset($data['tif']) ? $data['tif'] : 'gtc';
         $this->container['text'] = isset($data['text']) ? $data['text'] : null;
         $this->container['reduce_only'] = isset($data['reduce_only']) ? $data['reduce_only'] : false;
+        $this->container['auto_size'] = isset($data['auto_size']) ? $data['auto_size'] : null;
         $this->container['is_reduce_only'] = isset($data['is_reduce_only']) ? $data['is_reduce_only'] : null;
         $this->container['is_close'] = isset($data['is_close']) ? $data['is_close'] : null;
     }
@@ -456,6 +462,30 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets auto_size
+     *
+     * @return string|null
+     */
+    public function getAutoSize()
+    {
+        return $this->container['auto_size'];
+    }
+
+    /**
+     * Sets auto_size
+     *
+     * @param string|null $auto_size Set side to close dual-mode position. `close_long` closes the long side; while `close_short` the short one. Note `size` also needs to be set to 0
+     *
+     * @return $this
+     */
+    public function setAutoSize($auto_size)
+    {
+        $this->container['auto_size'] = $auto_size;
+
+        return $this;
+    }
+
+    /**
      * Gets is_reduce_only
      *
      * @return bool|null
@@ -509,7 +539,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -521,9 +551,10 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -534,7 +565,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -550,7 +581,7 @@ class FuturesInitialOrder implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

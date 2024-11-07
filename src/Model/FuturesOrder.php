@@ -43,17 +43,17 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'FuturesOrder';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'id' => 'int',
         'user' => 'int',
@@ -81,10 +81,10 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'id' => 'int64',
         'user' => null,
@@ -279,6 +279,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     const TIF_GTC = 'gtc';
     const TIF_IOC = 'ioc';
     const TIF_POC = 'poc';
+    const TIF_FOK = 'fok';
     const AUTO_SIZE_LONG = 'close_long';
     const AUTO_SIZE_SHORT = 'close_short';
     
@@ -327,6 +328,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
             self::TIF_GTC,
             self::TIF_IOC,
             self::TIF_POC,
+            self::TIF_FOK,
         ];
     }
     
@@ -837,7 +839,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
     /**
      * Sets tif
      *
-     * @param string|null $tif Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, reduce-only
+     * @param string|null $tif Time in force  - gtc: GoodTillCancelled - ioc: ImmediateOrCancelled, taker only - poc: PendingOrCancelled, makes a post-only order that always enjoys a maker fee - fok: FillOrKill, fill either completely or none
      *
      * @return $this
      */
@@ -1040,7 +1042,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -1052,9 +1054,10 @@ class FuturesOrder implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -1065,7 +1068,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -1081,7 +1084,7 @@ class FuturesOrder implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

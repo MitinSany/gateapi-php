@@ -42,44 +42,48 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'LedgerRecord';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'id' => 'string',
         'txid' => 'string',
+        'withdraw_order_id' => 'string',
         'timestamp' => 'string',
         'amount' => 'string',
         'currency' => 'string',
         'address' => 'string',
         'memo' => 'string',
         'status' => 'string',
-        'chain' => 'string'
+        'chain' => 'string',
+        'fee' => 'string'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'id' => null,
         'txid' => null,
+        'withdraw_order_id' => null,
         'timestamp' => null,
         'amount' => null,
         'currency' => null,
         'address' => null,
         'memo' => null,
         'status' => null,
-        'chain' => null
+        'chain' => null,
+        'fee' => null
     ];
 
     /**
@@ -111,13 +115,15 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'id' => 'id',
         'txid' => 'txid',
+        'withdraw_order_id' => 'withdraw_order_id',
         'timestamp' => 'timestamp',
         'amount' => 'amount',
         'currency' => 'currency',
         'address' => 'address',
         'memo' => 'memo',
         'status' => 'status',
-        'chain' => 'chain'
+        'chain' => 'chain',
+        'fee' => 'fee'
     ];
 
     /**
@@ -128,13 +134,15 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     protected static $setters = [
         'id' => 'setId',
         'txid' => 'setTxid',
+        'withdraw_order_id' => 'setWithdrawOrderId',
         'timestamp' => 'setTimestamp',
         'amount' => 'setAmount',
         'currency' => 'setCurrency',
         'address' => 'setAddress',
         'memo' => 'setMemo',
         'status' => 'setStatus',
-        'chain' => 'setChain'
+        'chain' => 'setChain',
+        'fee' => 'setFee'
     ];
 
     /**
@@ -145,13 +153,15 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     protected static $getters = [
         'id' => 'getId',
         'txid' => 'getTxid',
+        'withdraw_order_id' => 'getWithdrawOrderId',
         'timestamp' => 'getTimestamp',
         'amount' => 'getAmount',
         'currency' => 'getCurrency',
         'address' => 'getAddress',
         'memo' => 'getMemo',
         'status' => 'getStatus',
-        'chain' => 'getChain'
+        'chain' => 'getChain',
+        'fee' => 'getFee'
     ];
 
     /**
@@ -202,6 +212,12 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     const STATUS_BCODE = 'BCODE';
     const STATUS_EXTPEND = 'EXTPEND';
     const STATUS_FAIL = 'FAIL';
+    const STATUS_INVALID = 'INVALID';
+    const STATUS_VERIFY = 'VERIFY';
+    const STATUS_PROCES = 'PROCES';
+    const STATUS_PEND = 'PEND';
+    const STATUS_DMOVE = 'DMOVE';
+    const STATUS_SPLITPEND = 'SPLITPEND';
     
 
     
@@ -220,6 +236,12 @@ class LedgerRecord implements ModelInterface, ArrayAccess
             self::STATUS_BCODE,
             self::STATUS_EXTPEND,
             self::STATUS_FAIL,
+            self::STATUS_INVALID,
+            self::STATUS_VERIFY,
+            self::STATUS_PROCES,
+            self::STATUS_PEND,
+            self::STATUS_DMOVE,
+            self::STATUS_SPLITPEND,
         ];
     }
     
@@ -241,6 +263,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     {
         $this->container['id'] = isset($data['id']) ? $data['id'] : null;
         $this->container['txid'] = isset($data['txid']) ? $data['txid'] : null;
+        $this->container['withdraw_order_id'] = isset($data['withdraw_order_id']) ? $data['withdraw_order_id'] : null;
         $this->container['timestamp'] = isset($data['timestamp']) ? $data['timestamp'] : null;
         $this->container['amount'] = isset($data['amount']) ? $data['amount'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
@@ -248,6 +271,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
         $this->container['memo'] = isset($data['memo']) ? $data['memo'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
+        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
     }
 
     /**
@@ -273,6 +297,9 @@ class LedgerRecord implements ModelInterface, ArrayAccess
             );
         }
 
+        if ($this->container['chain'] === null) {
+            $invalidProperties[] = "'chain' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -332,6 +359,30 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     public function setTxid($txid)
     {
         $this->container['txid'] = $txid;
+
+        return $this;
+    }
+
+    /**
+     * Gets withdraw_order_id
+     *
+     * @return string|null
+     */
+    public function getWithdrawOrderId()
+    {
+        return $this->container['withdraw_order_id'];
+    }
+
+    /**
+     * Sets withdraw_order_id
+     *
+     * @param string|null $withdraw_order_id Client order id, up to 32 length and can only include 0-9, A-Z, a-z, underscore(_), hyphen(-) or dot(.)
+     *
+     * @return $this
+     */
+    public function setWithdrawOrderId($withdraw_order_id)
+    {
+        $this->container['withdraw_order_id'] = $withdraw_order_id;
 
         return $this;
     }
@@ -469,7 +520,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail
+     * @param string|null $status Record status.  - DONE: done - CANCEL: cancelled - REQUEST: requesting - MANUAL: pending manual approval - BCODE: GateCode operation - EXTPEND: pending confirm after sending - FAIL: pending confirm when fail - INVALID: invalid order - VERIFY: verifying - PROCES: processing - PEND: pending - DMOVE: required manual approval - SPLITPEND: the order is automatically split due to large amount
      *
      * @return $this
      */
@@ -492,7 +543,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Gets chain
      *
-     * @return string|null
+     * @return string
      */
     public function getChain()
     {
@@ -502,13 +553,37 @@ class LedgerRecord implements ModelInterface, ArrayAccess
     /**
      * Sets chain
      *
-     * @param string|null $chain Name of the chain used in withdrawals
+     * @param string $chain Name of the chain used in withdrawals
      *
      * @return $this
      */
     public function setChain($chain)
     {
         $this->container['chain'] = $chain;
+
+        return $this;
+    }
+
+    /**
+     * Gets fee
+     *
+     * @return string|null
+     */
+    public function getFee()
+    {
+        return $this->container['fee'];
+    }
+
+    /**
+     * Sets fee
+     *
+     * @param string|null $fee Fee
+     *
+     * @return $this
+     */
+    public function setFee($fee)
+    {
+        $this->container['fee'] = $fee;
 
         return $this;
     }
@@ -519,7 +594,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -531,9 +606,10 @@ class LedgerRecord implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -544,7 +620,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -560,7 +636,7 @@ class LedgerRecord implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

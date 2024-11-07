@@ -42,17 +42,17 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'CrossMarginCurrency';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'name' => 'string',
         'rate' => 'string',
@@ -61,14 +61,15 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'min_borrow_amount' => 'string',
         'user_max_borrow_amount' => 'string',
         'total_max_borrow_amount' => 'string',
-        'price' => 'string'
+        'price' => 'string',
+        'status' => 'int'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'name' => null,
         'rate' => null,
@@ -77,7 +78,8 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'min_borrow_amount' => null,
         'user_max_borrow_amount' => null,
         'total_max_borrow_amount' => null,
-        'price' => null
+        'price' => null,
+        'status' => null
     ];
 
     /**
@@ -114,7 +116,8 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'min_borrow_amount' => 'min_borrow_amount',
         'user_max_borrow_amount' => 'user_max_borrow_amount',
         'total_max_borrow_amount' => 'total_max_borrow_amount',
-        'price' => 'price'
+        'price' => 'price',
+        'status' => 'status'
     ];
 
     /**
@@ -130,7 +133,8 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'min_borrow_amount' => 'setMinBorrowAmount',
         'user_max_borrow_amount' => 'setUserMaxBorrowAmount',
         'total_max_borrow_amount' => 'setTotalMaxBorrowAmount',
-        'price' => 'setPrice'
+        'price' => 'setPrice',
+        'status' => 'setStatus'
     ];
 
     /**
@@ -146,7 +150,8 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         'min_borrow_amount' => 'getMinBorrowAmount',
         'user_max_borrow_amount' => 'getUserMaxBorrowAmount',
         'total_max_borrow_amount' => 'getTotalMaxBorrowAmount',
-        'price' => 'getPrice'
+        'price' => 'getPrice',
+        'status' => 'getStatus'
     ];
 
     /**
@@ -217,6 +222,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
         $this->container['user_max_borrow_amount'] = isset($data['user_max_borrow_amount']) ? $data['user_max_borrow_amount'] : null;
         $this->container['total_max_borrow_amount'] = isset($data['total_max_borrow_amount']) ? $data['total_max_borrow_amount'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
     }
 
     /**
@@ -280,7 +286,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
     /**
      * Sets rate
      *
-     * @param string|null $rate Loan rate
+     * @param string|null $rate Minimum lending rate (hourly rate)
      *
      * @return $this
      */
@@ -434,6 +440,30 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets status
+     *
+     * @return int|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int|null $status status  - `0` : disable  - `1` : enable
+     *
+     * @return $this
+     */
+    public function setStatus($status)
+    {
+        $this->container['status'] = $status;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -441,7 +471,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -453,9 +483,10 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -466,7 +497,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -482,7 +513,7 @@ class CrossMarginCurrency implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

@@ -42,17 +42,17 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'FuturesAccount';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'total' => 'string',
         'unrealised_pnl' => 'string',
@@ -61,14 +61,19 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'available' => 'string',
         'point' => 'string',
         'currency' => 'string',
-        'in_dual_mode' => 'bool'
+        'in_dual_mode' => 'bool',
+        'enable_credit' => 'bool',
+        'position_initial_margin' => 'string',
+        'maintenance_margin' => 'string',
+        'bonus' => 'string',
+        'history' => '\GateApi\Model\FuturesAccountHistory'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'total' => null,
         'unrealised_pnl' => null,
@@ -77,7 +82,12 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'available' => null,
         'point' => null,
         'currency' => null,
-        'in_dual_mode' => null
+        'in_dual_mode' => null,
+        'enable_credit' => null,
+        'position_initial_margin' => null,
+        'maintenance_margin' => null,
+        'bonus' => null,
+        'history' => null
     ];
 
     /**
@@ -114,7 +124,12 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'available' => 'available',
         'point' => 'point',
         'currency' => 'currency',
-        'in_dual_mode' => 'in_dual_mode'
+        'in_dual_mode' => 'in_dual_mode',
+        'enable_credit' => 'enable_credit',
+        'position_initial_margin' => 'position_initial_margin',
+        'maintenance_margin' => 'maintenance_margin',
+        'bonus' => 'bonus',
+        'history' => 'history'
     ];
 
     /**
@@ -130,7 +145,12 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'available' => 'setAvailable',
         'point' => 'setPoint',
         'currency' => 'setCurrency',
-        'in_dual_mode' => 'setInDualMode'
+        'in_dual_mode' => 'setInDualMode',
+        'enable_credit' => 'setEnableCredit',
+        'position_initial_margin' => 'setPositionInitialMargin',
+        'maintenance_margin' => 'setMaintenanceMargin',
+        'bonus' => 'setBonus',
+        'history' => 'setHistory'
     ];
 
     /**
@@ -146,7 +166,12 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         'available' => 'getAvailable',
         'point' => 'getPoint',
         'currency' => 'getCurrency',
-        'in_dual_mode' => 'getInDualMode'
+        'in_dual_mode' => 'getInDualMode',
+        'enable_credit' => 'getEnableCredit',
+        'position_initial_margin' => 'getPositionInitialMargin',
+        'maintenance_margin' => 'getMaintenanceMargin',
+        'bonus' => 'getBonus',
+        'history' => 'getHistory'
     ];
 
     /**
@@ -217,6 +242,11 @@ class FuturesAccount implements ModelInterface, ArrayAccess
         $this->container['point'] = isset($data['point']) ? $data['point'] : null;
         $this->container['currency'] = isset($data['currency']) ? $data['currency'] : null;
         $this->container['in_dual_mode'] = isset($data['in_dual_mode']) ? $data['in_dual_mode'] : null;
+        $this->container['enable_credit'] = isset($data['enable_credit']) ? $data['enable_credit'] : null;
+        $this->container['position_initial_margin'] = isset($data['position_initial_margin']) ? $data['position_initial_margin'] : null;
+        $this->container['maintenance_margin'] = isset($data['maintenance_margin']) ? $data['maintenance_margin'] : null;
+        $this->container['bonus'] = isset($data['bonus']) ? $data['bonus'] : null;
+        $this->container['history'] = isset($data['history']) ? $data['history'] : null;
     }
 
     /**
@@ -256,7 +286,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets total
      *
-     * @param string|null $total Total assets, total = position_margin + order_margin + available
+     * @param string|null $total total is the balance after the user's accumulated deposit, withdraw, profit and loss (including realized profit and loss, fund, fee and referral rebate), excluding unrealized profit and loss.  total = SUM(history_dnw, history_pnl, history_fee, history_refr, history_fund)
      *
      * @return $this
      */
@@ -352,7 +382,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
     /**
      * Sets available
      *
-     * @param string|null $available Available balance to transfer out or trade
+     * @param string|null $available The available balance for transferring or trading(including bonus.  Bonus can't be be withdrawn. The transfer amount needs to deduct the bonus)
      *
      * @return $this
      */
@@ -434,6 +464,126 @@ class FuturesAccount implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets enable_credit
+     *
+     * @return bool|null
+     */
+    public function getEnableCredit()
+    {
+        return $this->container['enable_credit'];
+    }
+
+    /**
+     * Sets enable_credit
+     *
+     * @param bool|null $enable_credit Whether portfolio margin account mode is enabled
+     *
+     * @return $this
+     */
+    public function setEnableCredit($enable_credit)
+    {
+        $this->container['enable_credit'] = $enable_credit;
+
+        return $this;
+    }
+
+    /**
+     * Gets position_initial_margin
+     *
+     * @return string|null
+     */
+    public function getPositionInitialMargin()
+    {
+        return $this->container['position_initial_margin'];
+    }
+
+    /**
+     * Sets position_initial_margin
+     *
+     * @param string|null $position_initial_margin Initial margin position, applicable to the portfolio margin account model
+     *
+     * @return $this
+     */
+    public function setPositionInitialMargin($position_initial_margin)
+    {
+        $this->container['position_initial_margin'] = $position_initial_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets maintenance_margin
+     *
+     * @return string|null
+     */
+    public function getMaintenanceMargin()
+    {
+        return $this->container['maintenance_margin'];
+    }
+
+    /**
+     * Sets maintenance_margin
+     *
+     * @param string|null $maintenance_margin Maintenance margin position, applicable to the portfolio margin account model
+     *
+     * @return $this
+     */
+    public function setMaintenanceMargin($maintenance_margin)
+    {
+        $this->container['maintenance_margin'] = $maintenance_margin;
+
+        return $this;
+    }
+
+    /**
+     * Gets bonus
+     *
+     * @return string|null
+     */
+    public function getBonus()
+    {
+        return $this->container['bonus'];
+    }
+
+    /**
+     * Sets bonus
+     *
+     * @param string|null $bonus Perpetual Contract Bonus
+     *
+     * @return $this
+     */
+    public function setBonus($bonus)
+    {
+        $this->container['bonus'] = $bonus;
+
+        return $this;
+    }
+
+    /**
+     * Gets history
+     *
+     * @return \GateApi\Model\FuturesAccountHistory|null
+     */
+    public function getHistory()
+    {
+        return $this->container['history'];
+    }
+
+    /**
+     * Sets history
+     *
+     * @param \GateApi\Model\FuturesAccountHistory|null $history history
+     *
+     * @return $this
+     */
+    public function setHistory($history)
+    {
+        $this->container['history'] = $history;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -441,7 +591,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -453,9 +603,10 @@ class FuturesAccount implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -466,7 +617,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -482,7 +633,7 @@ class FuturesAccount implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

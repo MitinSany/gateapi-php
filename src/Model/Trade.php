@@ -42,17 +42,17 @@ class Trade implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'Trade';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'id' => 'string',
         'create_time' => 'string',
@@ -70,10 +70,10 @@ class Trade implements ModelInterface, ArrayAccess
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'id' => null,
         'create_time' => null,
@@ -461,7 +461,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets role
      *
-     * @param string|null $role Trade role
+     * @param string|null $role Trade role. No value in public endpoints
      *
      * @return $this
      */
@@ -614,7 +614,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets point_fee
      *
-     * @param string|null $point_fee Points used to deduct fee
+     * @param string|null $point_fee Points used to deduct fee. No value in public endpoints
      *
      * @return $this
      */
@@ -638,7 +638,7 @@ class Trade implements ModelInterface, ArrayAccess
     /**
      * Sets gt_fee
      *
-     * @param string|null $gt_fee GT used to deduct fee
+     * @param string|null $gt_fee GT used to deduct fee. No value in public endpoints
      *
      * @return $this
      */
@@ -655,7 +655,7 @@ class Trade implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -667,9 +667,10 @@ class Trade implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -680,7 +681,7 @@ class Trade implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -696,7 +697,7 @@ class Trade implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

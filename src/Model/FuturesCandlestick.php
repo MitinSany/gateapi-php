@@ -43,38 +43,40 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'FuturesCandlestick';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         't' => 'double',
         'v' => 'int',
         'c' => 'string',
         'h' => 'string',
         'l' => 'string',
-        'o' => 'string'
+        'o' => 'string',
+        'sum' => 'string'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         't' => 'double',
         'v' => 'int64',
         'c' => null,
         'h' => null,
         'l' => null,
-        'o' => null
+        'o' => null,
+        'sum' => null
     ];
 
     /**
@@ -109,7 +111,8 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
         'c' => 'c',
         'h' => 'h',
         'l' => 'l',
-        'o' => 'o'
+        'o' => 'o',
+        'sum' => 'sum'
     ];
 
     /**
@@ -123,7 +126,8 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
         'c' => 'setC',
         'h' => 'setH',
         'l' => 'setL',
-        'o' => 'setO'
+        'o' => 'setO',
+        'sum' => 'setSum'
     ];
 
     /**
@@ -137,7 +141,8 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
         'c' => 'getC',
         'h' => 'getH',
         'l' => 'getL',
-        'o' => 'getO'
+        'o' => 'getO',
+        'sum' => 'getSum'
     ];
 
     /**
@@ -206,6 +211,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
         $this->container['h'] = isset($data['h']) ? $data['h'] : null;
         $this->container['l'] = isset($data['l']) ? $data['l'] : null;
         $this->container['o'] = isset($data['o']) ? $data['o'] : null;
+        $this->container['sum'] = isset($data['sum']) ? $data['sum'] : null;
     }
 
     /**
@@ -269,7 +275,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
     /**
      * Sets v
      *
-     * @param int|null $v size volume. Only returned if `contract` is not prefixed
+     * @param int|null $v size volume (contract size). Only returned if `contract` is not prefixed
      *
      * @return $this
      */
@@ -293,7 +299,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
     /**
      * Sets c
      *
-     * @param string|null $c Close price
+     * @param string|null $c Close price (quote currency)
      *
      * @return $this
      */
@@ -317,7 +323,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
     /**
      * Sets h
      *
-     * @param string|null $h Highest price
+     * @param string|null $h Highest price (quote currency)
      *
      * @return $this
      */
@@ -341,7 +347,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
     /**
      * Sets l
      *
-     * @param string|null $l Lowest price
+     * @param string|null $l Lowest price (quote currency)
      *
      * @return $this
      */
@@ -365,13 +371,37 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
     /**
      * Sets o
      *
-     * @param string|null $o Open price
+     * @param string|null $o Open price (quote currency)
      *
      * @return $this
      */
     public function setO($o)
     {
         $this->container['o'] = $o;
+
+        return $this;
+    }
+
+    /**
+     * Gets sum
+     *
+     * @return string|null
+     */
+    public function getSum()
+    {
+        return $this->container['sum'];
+    }
+
+    /**
+     * Sets sum
+     *
+     * @param string|null $sum Trading volume (unit: Quote currency)
+     *
+     * @return $this
+     */
+    public function setSum($sum)
+    {
+        $this->container['sum'] = $sum;
 
         return $this;
     }
@@ -382,7 +412,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -394,9 +424,10 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -407,7 +438,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -423,7 +454,7 @@ class FuturesCandlestick implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

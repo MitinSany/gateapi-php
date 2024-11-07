@@ -42,17 +42,17 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'MyFuturesTrade';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'id' => 'int',
         'create_time' => 'double',
@@ -60,14 +60,17 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
         'order_id' => 'string',
         'size' => 'int',
         'price' => 'string',
-        'role' => 'string'
+        'role' => 'string',
+        'text' => 'string',
+        'fee' => 'string',
+        'point_fee' => 'string'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'id' => 'int64',
         'create_time' => 'double',
@@ -75,7 +78,10 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
         'order_id' => null,
         'size' => 'int64',
         'price' => null,
-        'role' => null
+        'role' => null,
+        'text' => null,
+        'fee' => null,
+        'point_fee' => null
     ];
 
     /**
@@ -111,7 +117,10 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
         'order_id' => 'order_id',
         'size' => 'size',
         'price' => 'price',
-        'role' => 'role'
+        'role' => 'role',
+        'text' => 'text',
+        'fee' => 'fee',
+        'point_fee' => 'point_fee'
     ];
 
     /**
@@ -126,7 +135,10 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
         'order_id' => 'setOrderId',
         'size' => 'setSize',
         'price' => 'setPrice',
-        'role' => 'setRole'
+        'role' => 'setRole',
+        'text' => 'setText',
+        'fee' => 'setFee',
+        'point_fee' => 'setPointFee'
     ];
 
     /**
@@ -141,7 +153,10 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
         'order_id' => 'getOrderId',
         'size' => 'getSize',
         'price' => 'getPrice',
-        'role' => 'getRole'
+        'role' => 'getRole',
+        'text' => 'getText',
+        'fee' => 'getFee',
+        'point_fee' => 'getPointFee'
     ];
 
     /**
@@ -226,6 +241,9 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
         $this->container['size'] = isset($data['size']) ? $data['size'] : null;
         $this->container['price'] = isset($data['price']) ? $data['price'] : null;
         $this->container['role'] = isset($data['role']) ? $data['role'] : null;
+        $this->container['text'] = isset($data['text']) ? $data['text'] : null;
+        $this->container['fee'] = isset($data['fee']) ? $data['fee'] : null;
+        $this->container['point_fee'] = isset($data['point_fee']) ? $data['point_fee'] : null;
     }
 
     /**
@@ -436,6 +454,78 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets text
+     *
+     * @return string|null
+     */
+    public function getText()
+    {
+        return $this->container['text'];
+    }
+
+    /**
+     * Sets text
+     *
+     * @param string|null $text User defined information
+     *
+     * @return $this
+     */
+    public function setText($text)
+    {
+        $this->container['text'] = $text;
+
+        return $this;
+    }
+
+    /**
+     * Gets fee
+     *
+     * @return string|null
+     */
+    public function getFee()
+    {
+        return $this->container['fee'];
+    }
+
+    /**
+     * Sets fee
+     *
+     * @param string|null $fee Fee deducted
+     *
+     * @return $this
+     */
+    public function setFee($fee)
+    {
+        $this->container['fee'] = $fee;
+
+        return $this;
+    }
+
+    /**
+     * Gets point_fee
+     *
+     * @return string|null
+     */
+    public function getPointFee()
+    {
+        return $this->container['point_fee'];
+    }
+
+    /**
+     * Sets point_fee
+     *
+     * @param string|null $point_fee Points used to deduct fee
+     *
+     * @return $this
+     */
+    public function setPointFee($point_fee)
+    {
+        $this->container['point_fee'] = $point_fee;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -443,7 +533,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -455,9 +545,10 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -468,7 +559,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -484,7 +575,7 @@ class MyFuturesTrade implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

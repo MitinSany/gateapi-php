@@ -1311,7 +1311,7 @@ class DeliveryApi
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1335,7 +1335,7 @@ class DeliveryApi
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \GateApi\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1396,7 +1396,7 @@ class DeliveryApi
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1423,7 +1423,7 @@ class DeliveryApi
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1477,7 +1477,7 @@ class DeliveryApi
      * @param int    $from     Start time of candlesticks, formatted in Unix timestamp in seconds. Default to&#x60;to - 100 * interval&#x60; if not specified (optional)
      * @param int    $to       End time of candlesticks, formatted in Unix timestamp in seconds. Default to current time (optional)
      * @param int    $limit    Maximum recent data points to return. &#x60;limit&#x60; is conflicted with &#x60;from&#x60; and &#x60;to&#x60;. If either &#x60;from&#x60; or &#x60;to&#x60; is specified, request will be rejected. (optional, default to 100)
-     * @param string $interval Interval time between data points (optional, default to '5m')
+     * @param string $interval Interval time between data points. Note that &#x60;1w&#x60; means natual week(Mon-Sun), while &#x60;7d&#x60; means every 7d since unix 0 (optional, default to '5m')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -7721,7 +7721,7 @@ class DeliveryApi
     /**
      * Operation getPriceTriggeredDeliveryOrder
      *
-     * Get a single order
+     * Get a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -7739,7 +7739,7 @@ class DeliveryApi
     /**
      * Operation getPriceTriggeredDeliveryOrderWithHttpInfo
      *
-     * Get a single order
+     * Get a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -7794,7 +7794,7 @@ class DeliveryApi
     /**
      * Operation getPriceTriggeredDeliveryOrderAsync
      *
-     * Get a single order
+     * Get a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -7815,7 +7815,7 @@ class DeliveryApi
     /**
      * Operation getPriceTriggeredDeliveryOrderAsyncWithHttpInfo
      *
-     * Get a single order
+     * Get a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -7981,7 +7981,7 @@ class DeliveryApi
     /**
      * Operation cancelPriceTriggeredDeliveryOrder
      *
-     * Cancel a single order
+     * cancel a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -7999,7 +7999,7 @@ class DeliveryApi
     /**
      * Operation cancelPriceTriggeredDeliveryOrderWithHttpInfo
      *
-     * Cancel a single order
+     * cancel a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -8054,7 +8054,7 @@ class DeliveryApi
     /**
      * Operation cancelPriceTriggeredDeliveryOrderAsync
      *
-     * Cancel a single order
+     * cancel a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)
@@ -8075,7 +8075,7 @@ class DeliveryApi
     /**
      * Operation cancelPriceTriggeredDeliveryOrderAsyncWithHttpInfo
      *
-     * Cancel a single order
+     * cancel a price-triggered order
      *
      * @param string $settle   Settle currency (required)
      * @param string $order_id Retrieve the data of the order with the specified ID (required)

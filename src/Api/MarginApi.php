@@ -7863,7 +7863,7 @@ class MarginApi
     /**
      * Operation repayCrossMarginLoan
      *
-     * Repay cross margin loan
+     * Cross margin repayments
      *
      * @param \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request cross_margin_repay_request (required)
      *
@@ -7880,7 +7880,7 @@ class MarginApi
     /**
      * Operation repayCrossMarginLoanWithHttpInfo
      *
-     * Repay cross margin loan
+     * Cross margin repayments
      *
      * @param \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
      *
@@ -7934,7 +7934,7 @@ class MarginApi
     /**
      * Operation repayCrossMarginLoanAsync
      *
-     * Repay cross margin loan
+     * Cross margin repayments
      *
      * @param \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
      *
@@ -7954,7 +7954,7 @@ class MarginApi
     /**
      * Operation repayCrossMarginLoanAsyncWithHttpInfo
      *
-     * Repay cross margin loan
+     * Cross margin repayments
      *
      * @param \GateApi\Model\CrossMarginRepayRequest $cross_margin_repay_request (required)
      *

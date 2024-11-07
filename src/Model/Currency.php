@@ -42,38 +42,42 @@ class Currency implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'Currency';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'currency' => 'string',
         'delisted' => 'bool',
         'withdraw_disabled' => 'bool',
         'withdraw_delayed' => 'bool',
         'deposit_disabled' => 'bool',
-        'trade_disabled' => 'bool'
+        'trade_disabled' => 'bool',
+        'fixed_rate' => 'string',
+        'chain' => 'string'
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'currency' => null,
         'delisted' => null,
         'withdraw_disabled' => null,
         'withdraw_delayed' => null,
         'deposit_disabled' => null,
-        'trade_disabled' => null
+        'trade_disabled' => null,
+        'fixed_rate' => null,
+        'chain' => null
     ];
 
     /**
@@ -108,7 +112,9 @@ class Currency implements ModelInterface, ArrayAccess
         'withdraw_disabled' => 'withdraw_disabled',
         'withdraw_delayed' => 'withdraw_delayed',
         'deposit_disabled' => 'deposit_disabled',
-        'trade_disabled' => 'trade_disabled'
+        'trade_disabled' => 'trade_disabled',
+        'fixed_rate' => 'fixed_rate',
+        'chain' => 'chain'
     ];
 
     /**
@@ -122,7 +128,9 @@ class Currency implements ModelInterface, ArrayAccess
         'withdraw_disabled' => 'setWithdrawDisabled',
         'withdraw_delayed' => 'setWithdrawDelayed',
         'deposit_disabled' => 'setDepositDisabled',
-        'trade_disabled' => 'setTradeDisabled'
+        'trade_disabled' => 'setTradeDisabled',
+        'fixed_rate' => 'setFixedRate',
+        'chain' => 'setChain'
     ];
 
     /**
@@ -136,7 +144,9 @@ class Currency implements ModelInterface, ArrayAccess
         'withdraw_disabled' => 'getWithdrawDisabled',
         'withdraw_delayed' => 'getWithdrawDelayed',
         'deposit_disabled' => 'getDepositDisabled',
-        'trade_disabled' => 'getTradeDisabled'
+        'trade_disabled' => 'getTradeDisabled',
+        'fixed_rate' => 'getFixedRate',
+        'chain' => 'getChain'
     ];
 
     /**
@@ -205,6 +215,8 @@ class Currency implements ModelInterface, ArrayAccess
         $this->container['withdraw_delayed'] = isset($data['withdraw_delayed']) ? $data['withdraw_delayed'] : null;
         $this->container['deposit_disabled'] = isset($data['deposit_disabled']) ? $data['deposit_disabled'] : null;
         $this->container['trade_disabled'] = isset($data['trade_disabled']) ? $data['trade_disabled'] : null;
+        $this->container['fixed_rate'] = isset($data['fixed_rate']) ? $data['fixed_rate'] : null;
+        $this->container['chain'] = isset($data['chain']) ? $data['chain'] : null;
     }
 
     /**
@@ -374,6 +386,54 @@ class Currency implements ModelInterface, ArrayAccess
 
         return $this;
     }
+
+    /**
+     * Gets fixed_rate
+     *
+     * @return string|null
+     */
+    public function getFixedRate()
+    {
+        return $this->container['fixed_rate'];
+    }
+
+    /**
+     * Sets fixed_rate
+     *
+     * @param string|null $fixed_rate Fixed fee rate. Only for fixed rate currencies, not valid for normal currencies
+     *
+     * @return $this
+     */
+    public function setFixedRate($fixed_rate)
+    {
+        $this->container['fixed_rate'] = $fixed_rate;
+
+        return $this;
+    }
+
+    /**
+     * Gets chain
+     *
+     * @return string|null
+     */
+    public function getChain()
+    {
+        return $this->container['chain'];
+    }
+
+    /**
+     * Sets chain
+     *
+     * @param string|null $chain Chain of currency
+     *
+     * @return $this
+     */
+    public function setChain($chain)
+    {
+        $this->container['chain'] = $chain;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
@@ -381,7 +441,7 @@ class Currency implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -393,9 +453,10 @@ class Currency implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -406,7 +467,7 @@ class Currency implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -422,7 +483,7 @@ class Currency implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }

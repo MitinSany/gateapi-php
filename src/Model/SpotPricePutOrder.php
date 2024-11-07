@@ -42,17 +42,17 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     const DISCRIMINATOR = null;
 
     /**
-      * The original name of the model.
-      *
-      * @var string
-      */
+     * The original name of the model.
+     *
+     * @var string
+     */
     protected static $openAPIModelName = 'SpotPricePutOrder';
 
     /**
-      * Array of property to type mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to type mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPITypes = [
         'type' => 'string',
         'side' => 'string',
@@ -63,10 +63,10 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     ];
 
     /**
-      * Array of property to format mappings. Used for (de)serialization
-      *
-      * @var string[]
-      */
+     * Array of property to format mappings. Used for (de)serialization
+     *
+     * @var string[]
+     */
     protected static $openAPIFormats = [
         'type' => null,
         'side' => null,
@@ -184,6 +184,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     const SIDE_SELL = 'sell';
     const ACCOUNT_NORMAL = 'normal';
     const ACCOUNT_MARGIN = 'margin';
+    const ACCOUNT_CROSS_MARGIN = 'cross_margin';
     const TIME_IN_FORCE_GTC = 'gtc';
     const TIME_IN_FORCE_IOC = 'ioc';
     
@@ -212,6 +213,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
         return [
             self::ACCOUNT_NORMAL,
             self::ACCOUNT_MARGIN,
+            self::ACCOUNT_CROSS_MARGIN,
         ];
     }
     
@@ -430,7 +432,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
     /**
      * Sets account
      *
-     * @param string $account Trading type  - normal: spot trading - margin: margin trading
+     * @param string $account Trading account type.  Portfolio margin account must set to `cross_margin`  - normal: spot trading - margin: margin trading - cross_margin: cross_margin trading
      *
      * @return $this
      */
@@ -489,7 +491,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
      *
      * @return boolean
      */
-    public function offsetExists($offset)
+    public function offsetExists($offset): bool
     {
         return isset($this->container[$offset]);
     }
@@ -501,9 +503,10 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
      *
      * @return mixed
      */
+    #[ReturnTypeWillChange]
     public function offsetGet($offset)
     {
-        return isset($this->container[$offset]) ? $this->container[$offset] : null;
+        return $this->container[$offset] ?? null;
     }
 
     /**
@@ -514,7 +517,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetSet($offset, $value)
+    public function offsetSet($offset, $value): void
     {
         if (is_null($offset)) {
             $this->container[] = $value;
@@ -530,7 +533,7 @@ class SpotPricePutOrder implements ModelInterface, ArrayAccess
      *
      * @return void
      */
-    public function offsetUnset($offset)
+    public function offsetUnset($offset): void
     {
         unset($this->container[$offset]);
     }
